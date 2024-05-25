@@ -1,0 +1,1 @@
+alter table patients add cpf varchar(20) not null;

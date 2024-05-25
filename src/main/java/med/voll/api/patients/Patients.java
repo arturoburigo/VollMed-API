@@ -1,4 +1,5 @@
-package med.voll.api.medics;
+package med.voll.api.patients;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -6,31 +7,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.address.Address;
 
-@Table(name = "medics")
-@Entity(name = "Medics")
+@Table(name = "patients")
+@Entity(name = "Patients")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medics {
-    @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
+public class Patients {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String email;
     private String name;
     private String phone;
-    private String email;
-    private String crm;
-    @Enumerated(EnumType.STRING)
-    private Specialty specialty;
-
+    private String cpf;
     @Embedded
     private Address address;
 
-    public Medics(MedicsRegisterData data) {
+    public  Patients(PatientRegisterData data){
         this.name = data.name();
         this.email = data.email();
-        this.crm = data.crm();
         this.phone = data.phone();
-        this.specialty = data.specialty();
+        this.cpf = data.cpf();
         this.address = new Address(data.address());
     }
 }
