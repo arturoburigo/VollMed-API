@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.patients.PatientRegisterData;
 import med.voll.api.patients.Patients;
@@ -16,6 +17,7 @@ public class PatientsController {
     @Autowired
     private PatientsRepository repository;
     @PostMapping
+    @Transactional
     public void register(@RequestBody @Valid PatientRegisterData data) {
         repository.save(new Patients(data));
     }
