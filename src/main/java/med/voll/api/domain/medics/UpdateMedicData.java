@@ -1,7 +1,7 @@
-package med.voll.api.medics;
+package med.voll.api.domain.medics;
 
 import jakarta.validation.constraints.NotNull;
-import med.voll.api.address.AddressData;
+import med.voll.api.domain.address.AddressData;
 
 public record UpdateMedicData(
         @NotNull
