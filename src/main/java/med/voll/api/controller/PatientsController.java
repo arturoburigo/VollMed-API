@@ -51,8 +51,6 @@ public class PatientsController {
     @Transactional
     public ResponseEntity deletePatient(@PathVariable Long id) {
         var patient = repository.getReferenceById(id);
-        patient.inactivate();
-
         return ResponseEntity.noContent().build();
     }
 
