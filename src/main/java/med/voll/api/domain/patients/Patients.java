@@ -25,7 +25,7 @@ public class Patients {
 
     private Boolean active;
 
-    public  Patients(PatientRegisterData data){
+    public   Patients(PatientRegisterData data){
         this.active = true;
         this.name = data.name();
         this.email = data.email();

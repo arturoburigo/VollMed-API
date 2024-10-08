@@ -27,4 +27,11 @@ public interface MedicsRepository extends JpaRepository<Medics, Long> {
                 limit 1
                 """)
     Medics chooseMedicRandomFreeOnDate(Specialty specialty, LocalDateTime date);
+
+    @Query("""
+                select m.active from Medics m
+                where m.id = :id
+                """)
+    Boolean findActiveById(long id);
 }
+
